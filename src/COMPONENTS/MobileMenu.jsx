@@ -31,7 +31,7 @@ export const MobileMenu = ({ isOpen, setIsOpen }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.ul
-          className="absolute top-25 w-60 bg-white z-50 left-0 shadow p-4 space-y-4"
+          className="absolute top-25 w-60 bg-white z-50 left-0 h-auto shadow p-4 space-y-5"
           initial="hidden"
           animate="visible"
           exit="exit"

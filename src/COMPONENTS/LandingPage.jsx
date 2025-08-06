@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Mail, MapPinCheckInside, Menu, Search } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
 
 const LandingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const scrollRef = useRef(null);
+  useEffect(() => {
+    if (isOpen) {
+      if (scrollRef.current) {
+        scrollRef.current.style.overflow = 'hidden'
+      }
+    } else {
+      if (scrollRef.current) {
+        scrollRef.current.style.overflow = 'auto'
+        
+      }
+    }
+    
+  }, [isOpen])
   return (
-    <div className="w-full h-screen relative">
+    <div className="w-full h-screen relative" ref={scrollRef}>
       <nav className="w-full hidden md:hidden lg:inline-block h-10 overflow-hidden bg-slate-800">
         <div className="marquee-animation flex h-full items-center justify-between whitespace-nowrap px-16">
           <div className="motto-mail flex items-center gap-16 ">
