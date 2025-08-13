@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Mail, MapPinCheckInside, Menu, Search } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
+import About from "./About";
+import { motion } from "framer-motion";
 
 const LandingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,16 +10,25 @@ const LandingPage = () => {
   useEffect(() => {
     if (isOpen) {
       if (scrollRef.current) {
-        scrollRef.current.style.overflow = 'hidden'
+        scrollRef.current.style.overflow = "hidden";
       }
     } else {
       if (scrollRef.current) {
-        scrollRef.current.style.overflow = 'auto'
-        
+        scrollRef.current.style.overflow = "auto";
       }
     }
-    
-  }, [isOpen])
+  }, [isOpen]);
+  const variant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+  const itemVariants = {
+    hidden: { x: -50, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
   return (
     <div className="w-full h-screen relative" ref={scrollRef}>
       <nav className="w-full hidden md:hidden lg:inline-block h-10 overflow-hidden bg-slate-800">
@@ -29,7 +40,9 @@ const LandingPage = () => {
             </div>
             <div className="mail flex items-center gap-2">
               <Mail size={18} className="stroke-yellow-600" />
-              <p className="text-sm text-gray-300 italic">info@greenfieldacademy.com</p>
+              <p className="text-sm text-gray-300 italic">
+                info@greenfieldacademy.com
+              </p>
             </div>
           </div>
           <div className="opening-day text-gray-300 text-sm">
@@ -87,34 +100,53 @@ const LandingPage = () => {
           <li className="cursor-pointer hover:text-yellow-300">Events</li>
           <li className="cursor-pointer hover:text-yellow-300">Contact</li>
         </ul>
-        <Search className="cursor-pointer"/>
+        <Search className="cursor-pointer" />
       </nav>
       <div className="flex justify-between md:flex mb-2 lg:hidden p-4 items-center">
-        <Menu onClick={() => {
-          console.log('Opening menu...')
-          setIsOpen(true)
-        }}  className=" h-7 w-7 md:h-12 md:w-12" />
-        <Search className="w-7 h-7 md:h-12 md:w-12 "/>
-        
+        <Menu
+          onClick={() => {
+            console.log("Opening menu...");
+            setIsOpen(true);
+          }}
+          className=" h-7 w-7 md:h-12 md:w-12"
+        />
+        <Search className="w-7 h-7 md:h-12 md:w-12 " />
       </div>
-      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
-      <main className="w-full h-[70vh] m-0 p-0">
-        <div
+      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+      <motion.main
+        variants={variant}
+        initial="hidden"
+        animate="visible"
+        className="w-full h-[70vh] m-0 p-0"
+      >
+        <motion.div
           className="w-full h-full bg-cover m- bg-center bg-no-repeat flex items-center justify-center"
           style={{ backgroundImage: "url('/assets/class.jpg')" }}
         >
-          <div className="bg-black opacity-50 text-white p-8 flex flex-col items-center justify-center text-center w-full h-full">
-            <h1 className="flex whitespace-break-spaces lg:whitespace-nowrap text-2xl md:text-4xl lg:text-4xl font-bold mb-4">
+          <motion.div className="bg-black opacity-50 text-white p-8 flex flex-col items-center justify-center text-center w-full h-full">
+            <motion.h1
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="flex whitespace-break-spaces lg:whitespace-nowrap text-2xl md:text-4xl lg:text-4xl font-bold mb-4"
+            >
               Welcome to Greenfield Academy
-            </h1>
-            <p className="flex text-lg font-normal whitespace-nowrap md:text-2xl lg:text-2xl lg:font-medium">
-              Empowering minds, shaping futures
-            </p>
-            <button className="bg-green-400 w-30 h-12 text-base md:text-3xl hover:bg-amber-200 md:w-48 md:h-16 lg:h-12 lg:w-36 mt-6 rounded lg:text-xl">Get Started</button>
-          </div>
-        </div>
-      </main>
-      
+            </motion.h1>
+            <div className="school-brand flex text-lg font-normal whitespace-pre md:text-2xl lg:text-2xl lg:font-medium">
+              {"Empowering minds, shaping futures".split("").map((char, i) => (
+                <motion.span key={i} variants={itemVariants} className="inline-block">
+                  {char}
+                </motion.span>
+              ))}
+            </div>
+
+            <button className="bg-green-400 w-30 h-12 text-base md:text-3xl hover:bg-amber-200 md:w-48 md:h-16 lg:h-12 lg:w-36 mt-6 rounded lg:text-xl">
+              Get Started
+            </button>
+          </motion.div>
+        </motion.div>
+      </motion.main>
+      <About />
     </div>
   );
 };
