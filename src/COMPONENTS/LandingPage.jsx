@@ -8,17 +8,7 @@ import Navbar from "./Navbar";
 const LandingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const scrollRef = useRef(null);
-  useEffect(() => {
-    if (isOpen) {
-      if (scrollRef.current) {
-        scrollRef.current.style.overflow = "hidden";
-      }
-    } else {
-      if (scrollRef.current) {
-        scrollRef.current.style.overflow = "auto";
-      }
-    }
-  }, [isOpen]);
+
   const variant = {
     hidden: { opacity: 0 },
     visible: {
