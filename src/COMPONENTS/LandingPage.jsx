@@ -30,6 +30,8 @@ const LandingPage = () => {
     hidden: { x: -50, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
+   
+    
   return (
     <div className="w-full h-screen relative" ref={scrollRef}>
       <Navbar />
@@ -37,7 +39,7 @@ const LandingPage = () => {
         initial={{ x: -90, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{duration: 0.8, delay: 0.2, ease: "easeOut"}}
-        className="flex justify-between top-25 mb-2 z-50 bg-white relative text-black lg:hidden p-4 items-center">
+        className="flex fixed w-full justify-between top-24 mb-2 z-50 bg-white  text-black lg:hidden p-4 items-center">
         <Menu
           onClick={() => {
             console.log("Opening menu...");
