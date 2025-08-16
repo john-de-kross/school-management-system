@@ -1,13 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Menu, Search } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
 import About from "./About";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
+import Services from "./Services";
+import Testimony from "./Testimony";
+import Contact from "./Contact";
+import Footer from "./Footer";
 
 const LandingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const scrollRef = useRef(null);
 
   const variant = {
     hidden: { opacity: 0 },
@@ -23,7 +26,7 @@ const LandingPage = () => {
    
     
   return (
-    <div className="w-full h-screen relative" ref={scrollRef}>
+    <div className="w-full min-h-screen relative">
       <Navbar />
       <motion.div
         initial={{ x: -90, opacity: 0 }}
@@ -74,6 +77,11 @@ const LandingPage = () => {
         </motion.div>
       </motion.main>
       <About />
+      <Services />
+      <Testimony />
+      <Contact />
+      <Footer />
+   
     </div>
   );
 };

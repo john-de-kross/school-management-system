@@ -28,7 +28,7 @@ const Navbar = () => {
         initial={{ y: -90, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full top-0 flex items-center justify-center px-0  lg:px-20 border-b border-gray-200 lg:justify-between h-24 md:h-32 lg:h-24"
+        className="w-full top-0 flex items-center justify-center px-0 lg:px-20 border-b border-gray-200 lg:justify-between h-24 md:h-32 lg:h-24"
       >
         <div className="brand w-full flex justify-center md:justify-center lg:justify-start gap-2 items-center">
           <img
@@ -77,13 +77,13 @@ const Navbar = () => {
       >
         <ul className="flex  gap-8 text-base font-medium">
           <li className="cursor-pointer hover:text-yellow-300">Home</li>
-          <li className="cursor-pointer hover:text-yellow-300">About</li>
+          <li className="cursor-pointer hover:text-yellow-300"><a href="#about">About</a></li>
           <li className="cursor-pointer hover:text-yellow-300">Admission</li>
           <li className="cursor-pointer hover:text-yellow-300">Teacher</li>
           <li className="cursor-pointer hover:text-yellow-300">Student</li>
           <li className="cursor-pointer hover:text-yellow-300">Apply</li>
-          <li className="cursor-pointer hover:text-yellow-300">Blog</li>
-          <li className="cursor-pointer hover:text-yellow-300">Contact</li>
+          <li className="cursor-pointer hover:text-yellow-300"><a href="#services">Services</a></li>
+          <li className="cursor-pointer hover:text-yellow-300"><a href="#contact">Contact</a></li>
         </ul>
         <Search className="cursor-pointer" />
       </motion.nav>
