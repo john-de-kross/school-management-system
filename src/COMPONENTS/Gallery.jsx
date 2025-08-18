@@ -32,19 +32,26 @@ function Gallery() {
               key={index}
               src={image}
               alt={`Gallery ${index + 1}`}
+              onClick={() => setSelectedImg(image)}
               className="aspect-square w-32 h-32 rounded-lg border-[1px] border-amber-400 cursor-pointer hover:opacity-80"
             />
-            <Fullscreen onClick={() => setSelectedImg(image)} className="absolute stroke-white w-5 h-5 ml-2 -mt-6 hover:scale-125"/>
+            <Fullscreen
+              onClick={() => setSelectedImg(image)}
+              className="absolute stroke-white w-5 h-5 ml-2 -mt-6 hover:scale-125"
+            />
           </motion.div>
         ))}
-          </motion.div>
-        
-          {selectedImage && (
-              <div className="fixed fullscreen w-screen top-0 left-0 h-screen bg-opacity-80 z-50  flex items-center justify-center">
-                  <img className="object-cover h- w-full" src={selectedImage} alt="image" />      
-              </div>
-        )}
-        
+      </motion.div>
+
+      {selectedImage && (
+        <div className="fixed fullscreen w-screen top-0 left-0 h-screen bg-opacity-80 z-50  flex items-center justify-center">
+          <img
+            className="object-cover h-full w-full"
+            src={selectedImage}
+            alt="image"
+          />
+        </div>
+      )}
     </section>
   );
 }
