@@ -8,6 +8,7 @@ import Services from "./Services";
 import Testimony from "./Testimony";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import Gallery from "./Gallery";
 
 const LandingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,6 +78,8 @@ const LandingPage = () => {
         </motion.div>
       </motion.main>
       <About />
+
+      <Gallery />
       <Services />
       <Testimony />
       <Contact />
