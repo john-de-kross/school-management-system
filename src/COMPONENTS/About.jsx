@@ -12,7 +12,7 @@ const About = () => {
       ref={ref}
       initial={{ opacity: 0, scale: 0 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.5 }}
     >
       <div
         className="lg:w-full mx-auto lg:mx-0 rounded-2xl shadow-2xl lg:rounded-none py-9 lg:py-0 w-[90%] lg:bg-gray-50 bg-white  place-items-center px-6 grid grid-cols-1 items-center">
