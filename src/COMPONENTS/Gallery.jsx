@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Fullscreen } from "lucide-react";
+import { ChevronLeft, ChevronRight, Fullscreen } from "lucide-react";
 function Gallery() {
   const gallery = [
     "/assets/student.jfif",
@@ -13,6 +13,20 @@ function Gallery() {
   const viewRef = useRef(null);
   const isView = useInView(viewRef, { root: "-100px", once: true });
   const [selectedImage, setSelectedImg] = useState(null);
+
+  const handleNextImage = () => {
+    const viewedImage = selectedImage;
+    const findViewedImg = gallery.indexOf(viewedImage);
+    const nextImg = gallery[findViewedImg + 1];
+    setSelectedImg(nextImg);
+    };
+    
+    const handlePrevImage = () => {
+    const viewedImage = selectedImage;
+    const findViewedImg = gallery.indexOf(viewedImage);
+    const nextImg = gallery[findViewedImg - 1];
+    setSelectedImg(nextImg);
+  };
   return (
     <section
       className="gallery w-full bg-stone-100 h-auto md:hidden"
@@ -45,11 +59,20 @@ function Gallery() {
 
       {selectedImage && (
         <div className="fixed fullscreen w-screen top-0 left-0 h-screen bg-opacity-80 z-50  flex items-center justify-center">
+          <Fullscreen
+            onClick={() => setSelectedImg(null)}
+            className="text-white top-20 absolute"
+          />
           <img
             className="object-cover h-full w-full"
             src={selectedImage}
             alt="image"
           />
+
+          <div className=" fixed text-white change-image flex justify-between w-full items-center">
+            <ChevronLeft onClick={handlePrevImage} className="text-white" />
+            <ChevronRight onClick={handleNextImage} />
+          </div>
         </div>
       )}
     </section>
