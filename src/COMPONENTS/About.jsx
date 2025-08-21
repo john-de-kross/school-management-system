@@ -10,9 +10,9 @@ const About = () => {
       id="about"
       className="w-full h-full bg-[#1C6EA4] lg:bg-gray-50 lg:block py-10"
       ref={ref}
-      initial={{ opacity: 0, scale: 0 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0, y: 90, scale: 0.95, filter: "blur(4px)" }}
+      animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+      transition={{ duration: 0.6}}
     >
       <div
         className="lg:w-full mx-auto lg:mx-0 rounded-2xl shadow-2xl lg:rounded-none py-9 lg:py-0 w-[90%] lg:bg-gray-50 bg-white  place-items-center px-6 grid grid-cols-1 items-center">

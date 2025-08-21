@@ -3,66 +3,84 @@ import { motion, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight, Fullscreen, X } from "lucide-react";
 function Gallery() {
   const gallery = [
-    "/assets/student.jfif",
-    "/assets/school-children.jpg",
-    "/assets/school-lab.png",
-    "/assets/computer.png",
-    "/assets/sport.jfif",
-    "/assets/learning.jpg",
+    {
+      image: "/assets/school-children.jpg",
+      des: "The frontal view of the school premises. The citadel of learnining",
+    },
+
+    {
+      image: "/assets/computer.png",
+      des: "Snippet of one of the computer laboratories of the school",
+    },
   ];
   const viewRef = useRef(null);
   const isView = useInView(viewRef, { root: "-100px", once: true });
   const [selectedImage, setSelectedImg] = useState(null);
 
   const handleNextImage = () => {
-    const viewedImage = selectedImage;
-    const findViewedImg = gallery.indexOf(viewedImage);
-    const nextImg = gallery[findViewedImg + 1];
+    const findViewedImg = gallery.findIndex(img => img.image === selectedImage);
+    const nextImg = gallery.length - 1 > findViewedImg ? gallery[findViewedImg + 1]?.image : null
     setSelectedImg(nextImg);
-    };
-    
-    const handlePrevImage = () => {
-    const viewedImage = selectedImage;
-    const findViewedImg = gallery.indexOf(viewedImage);
-    const nextImg = gallery[findViewedImg - 1];
-    setSelectedImg(nextImg);
+  };
+  
+  const handlePrevImage = () => {
+    const findViewedImg = gallery.findIndex(img => img.image === selectedImage);
+    const prevImg = gallery.length > findViewedImg ? gallery[findViewedImg - 1]?.image : null;
+
+    setSelectedImg(prevImg);
   };
   return (
     <section
       className="gallery w-full bg-stone-100 h-auto md:hidden"
       ref={viewRef}
     >
-      <div className="gallery-content flex flex-col pt-2 mb-4 place-items-center">
+      <div className="gallery-content flex flex-col pt-2 mb-2 place-items-center">
         <h2 className="text-2xl font-bold mb-4 text-blue-800">Gallery</h2>
       </div>
-      <motion.div className="grid relative grid-cols-1 gap-4 px-7 place-items-center sm:grid-cols-3">
-        {gallery.map((image, index) => (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-          >
-            <img
-              key={index}
-              src={image}
-              alt={`Gallery ${index + 1}`}
-              onClick={() => setSelectedImg(image)}
-              className="aspect-square w-40 h-40 rounded-lg border-[3px] border-blue-400 cursor-pointer hover:opacity-80"
-            />
-            <Fullscreen
-              onClick={() => setSelectedImg(image)}
-              className="absolute stroke-white w-5 h-5 ml-2 -mt-6 hover:scale-125"
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+      <motion.div 
+  className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 py-10 place-items-center"
+>
+  {gallery.map((image, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, scale: 0.8, y: 40 }}
+      animate={isView ? { opacity: 1, scale: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
+      className="w-64"
+    >
+      <div className="relative group bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden cursor-pointer transition-transform transform hover:-translate-y-2 hover:shadow-2xl">
+        
+        {/* Image */}
+        <img
+          src={image.image}
+          alt={`Gallery ${index + 1}`}
+          onClick={() => setSelectedImg(image.image)}
+          className="w-full h-64 object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-105"
+        />
+
+        {/* Overlay Icon */}
+        <Fullscreen
+          onClick={() => setSelectedImg(image.image)}
+          className="absolute top-56 left-3 w-6 h-6 stroke-white opacity-0 group-hover:opacity-100 transition duration-300 transform hover:scale-125"
+        />
+
+        {/* Description */}
+        <div className="p-3 text-center">
+          <p className="text-gray-700 font-medium">{image.des}</p>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
 
       {selectedImage && (
-        <div className="fixed fullscreen w-screen top-0 left-0 h-screen bg-opacity-80 z-50  flex items-center justify-center">
-          <X
+        <div className="fixed fullscreen w-screen top-0 left-0 h-screen bg-opacity-80 z-50 flex items-center justify-center">
+          <div className="fixed flex justify-center items-center top-2 right-2 w-7 h-7 rounded-full bg-blue-800">
+             <X
             onClick={() => setSelectedImg(null)}
-            className="text-white top-2 fixed w-9 h-9 right-2"
+            className="text-gray-100 w-5 h-5"
           />
+         </div>
           <img
             className="object-cover h-full w-full"
             src={selectedImage}
@@ -70,8 +88,11 @@ function Gallery() {
           />
 
           <div className=" fixed text-white change-image flex justify-between w-full items-center">
-            <ChevronLeft onClick={handlePrevImage} className="text-white w-7 h-7" />
-            <ChevronRight onClick={handleNextImage} className="w-9 h-9"/>
+            <ChevronLeft
+              onClick={handlePrevImage}
+              className="text-white w-7 h-7"
+            />
+            <ChevronRight onClick={handleNextImage} className="w-9 h-9" />
           </div>
         </div>
       )}
