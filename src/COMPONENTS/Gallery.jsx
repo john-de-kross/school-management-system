@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { ChevronLeft, ChevronRight, Fullscreen } from "lucide-react";
+import { ChevronLeft, ChevronRight, Fullscreen, X } from "lucide-react";
 function Gallery() {
   const gallery = [
     "/assets/student.jfif",
@@ -32,10 +32,10 @@ function Gallery() {
       className="gallery w-full bg-stone-100 h-auto md:hidden"
       ref={viewRef}
     >
-      <div className="gallery-content flex flex-col pt-2 place-items-center">
-        <h2 className="text-xl font-bold mb-4 text-blue-800">Gallery</h2>
+      <div className="gallery-content flex flex-col pt-2 mb-4 place-items-center">
+        <h2 className="text-2xl font-bold mb-4 text-blue-800">Gallery</h2>
       </div>
-      <motion.div className="grid relative grid-cols-2 gap-4 px-7 place-items-center sm:grid-cols-3">
+      <motion.div className="grid relative grid-cols-1 gap-4 px-7 place-items-center sm:grid-cols-3">
         {gallery.map((image, index) => (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -47,7 +47,7 @@ function Gallery() {
               src={image}
               alt={`Gallery ${index + 1}`}
               onClick={() => setSelectedImg(image)}
-              className="aspect-square w-32 h-32 rounded-lg border-[1px] border-amber-400 cursor-pointer hover:opacity-80"
+              className="aspect-square w-40 h-40 rounded-lg border-[3px] border-blue-400 cursor-pointer hover:opacity-80"
             />
             <Fullscreen
               onClick={() => setSelectedImg(image)}
@@ -59,9 +59,9 @@ function Gallery() {
 
       {selectedImage && (
         <div className="fixed fullscreen w-screen top-0 left-0 h-screen bg-opacity-80 z-50  flex items-center justify-center">
-          <Fullscreen
+          <X
             onClick={() => setSelectedImg(null)}
-            className="text-white top-20 absolute"
+            className="text-white top-2 fixed w-9 h-9 right-2"
           />
           <img
             className="object-cover h-full w-full"
@@ -70,8 +70,8 @@ function Gallery() {
           />
 
           <div className=" fixed text-white change-image flex justify-between w-full items-center">
-            <ChevronLeft onClick={handlePrevImage} className="text-white" />
-            <ChevronRight onClick={handleNextImage} />
+            <ChevronLeft onClick={handlePrevImage} className="text-white w-7 h-7" />
+            <ChevronRight onClick={handleNextImage} className="w-9 h-9"/>
           </div>
         </div>
       )}
