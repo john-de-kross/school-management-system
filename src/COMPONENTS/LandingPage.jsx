@@ -9,6 +9,7 @@ import Testimony from "./Testimony";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import Gallery from "./Gallery";
+import Events from "./Events";
 
 const LandingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,6 +85,7 @@ const LandingPage = () => {
       <Testimony />
       <Contact />
       <Footer />
+      <Events />
    
     </div>
   );
