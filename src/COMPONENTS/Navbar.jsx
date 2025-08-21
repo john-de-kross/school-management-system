@@ -28,9 +28,9 @@ const Navbar = () => {
         initial={{ y: -90, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full top-0 flex items-center justify-center px-0 lg:px-20 border-b border-gray-200 lg:justify-between h-24 md:h-32 lg:h-24"
+        className="w-full top-0 bg-gradient-to-r from-slate-500 to-sky-950 md:bg-gradient-to-r md:from-white md:to-white flex items-center justify-center px-0 lg:px-20 border-b border-gray-200 lg:justify-between h-24 md:h-32 lg:h-24"
       >
-        <div className="brand w-full flex justify-center md:justify-center lg:justify-start gap-2 items-center">
+        <div className="brand text-white md:text-gray-950 w-full flex justify-center md:justify-center lg:justify-start gap-2 items-center">
           <img
             className="w-10 h-10 md:h-12 md:w-12 lg:w-9 lg:h-9 "
             src="/assets/graduation-hat.png"

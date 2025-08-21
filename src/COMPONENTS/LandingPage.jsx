@@ -25,16 +25,16 @@ const LandingPage = () => {
     hidden: { x: -50, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
-   
-    
+
   return (
     <div className="w-full min-h-screen relative">
       <Navbar />
       <motion.div
         initial={{ x: -90, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{duration: 0.8, delay: 0.2, ease: "easeOut"}}
-        className="flex fixed w-full justify-between top-24 mb-2 z-50 bg-white  text-black lg:hidden p-4 items-center">
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        className="flex fixed w-full justify-between top-24 mb-2 z-50 bg-white  text-black lg:hidden p-4 items-center"
+      >
         <Menu
           onClick={() => {
             console.log("Opening menu...");
@@ -66,7 +66,11 @@ const LandingPage = () => {
             </motion.h1>
             <div className="school-brand flex text-lg font-normal whitespace-pre md:text-2xl lg:text-2xl lg:font-medium">
               {"Empowering minds, shaping futures".split("").map((char, i) => (
-                <motion.span key={i} variants={itemVariants} className="inline-block">
+                <motion.span
+                  key={i}
+                  variants={itemVariants}
+                  className="inline-block"
+                >
                   {char}
                 </motion.span>
               ))}
@@ -79,14 +83,12 @@ const LandingPage = () => {
         </motion.div>
       </motion.main>
       <About />
-
       <Gallery />
+      <Events />
       <Services />
       <Testimony />
       <Contact />
       <Footer />
-      <Events />
-   
     </div>
   );
 };
