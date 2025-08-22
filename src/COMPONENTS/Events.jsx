@@ -22,7 +22,7 @@ const Events = () => {
   const ref = useRef(null);
   const isInview = useInView(ref, { once: true });
   return (
-      <section ref={ref} className="w-full bg-[#239BA7] md:bg-stone-400 py-8">
+      <section ref={ref} className="w-full bg-[#239BA7] md:bg-gradient-to-l md:from-sky-900 md:to-slate-950 py-8">
           <div className="flex justify-center gap-3 text-white items-center">
           <img className="w-7 h-7" src="/assets/calendar.png" alt="calender" />
           <span className="text-xl font-medium md:text-2xl">Upcoming Events</span>

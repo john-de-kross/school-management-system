@@ -4,7 +4,7 @@ import React from "react";
 
 function Footer() {
     return ( 
-        <footer className="w-full lg:block mx-auto md:min-h-80  min-h-80 bg-slate-900">
+        <footer className="w-full lg:block mx-auto md:min-h-40 min-h-[55vh] bg-slate-900">
             <div className="mobile-footer-content flex md:hidden flex-col">
                 <div className="address text-gray-400 p-2 text-base font-sans">
                     <h1 className="text-lg font-medium mb-1">Address:</h1>
@@ -67,6 +67,9 @@ function Footer() {
                     </a>
                     <a href="www.twitter.com" className="h-10 w-10 flex justify-center items-center rounded-full border-2 border-gray-400">
                         <Twitter className="fill-gray-200 stroke-gray-200 h-5 w-5"/>
+                    </a>
+                     <a href="www.instagram.com" className="h-10 w-10 flex justify-center items-center rounded-full border-2 border-gray-400">
+                        <Instagram className="stroke-gray-200 h-5 w-5"/>
                     </a>
                 </div>
                 <div className="conditions hidden md:flex gap-6">

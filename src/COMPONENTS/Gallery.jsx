@@ -34,11 +34,11 @@ function Gallery() {
       className="gallery w-full bg-stone-100 h-auto md:hidden"
       ref={viewRef}
     >
-      <div className="gallery-content flex flex-col pt-2 mb-2 place-items-center">
-        <h2 className="text-2xl font-bold mb-4 text-blue-800">Gallery</h2>
+      <div className="gallery-content flex flex-col pt-4 mb-1 place-items-center">
+        <h2 className="text-2xl text-gray-950 font-[700] text-shadow-gray-600  mb-4 ">School Gallery</h2>
       </div>
       <motion.div 
-  className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 py-10 place-items-center"
+  className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 py-6 place-items-center"
 >
   {gallery.map((image, index) => (
     <motion.div
