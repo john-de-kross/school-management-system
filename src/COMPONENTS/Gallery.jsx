@@ -74,15 +74,15 @@ function Gallery() {
 </motion.div>
 
       {selectedImage && (
-        <div className="fixed fullscreen w-screen top-0 left-0 h-screen bg-opacity-80 z-50 flex items-center justify-center">
+        <div className="fixed fullscreen w-screen inset-0 bg-black h-screen bg-opacity-90 z-50 flex items-center justify-center">
           <div className="fixed flex justify-center items-center top-2 right-2 w-7 h-7 rounded-full bg-blue-800">
              <X
             onClick={() => setSelectedImg(null)}
-            className="text-gray-100 w-5 h-5"
+            className="text-gray-400 w-5 h-5"
           />
          </div>
           <img
-            className="object-cover h-full w-full"
+            className="max-h-full object-contain w-full"
             src={selectedImage}
             alt="image"
           />
