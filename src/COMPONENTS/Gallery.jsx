@@ -27,15 +27,17 @@ function Gallery() {
   const [selectedImage, setSelectedImg] = useState(null);
 
   const handleNextImage = () => {
+    const firstIndex = gallery[0].image
     const findViewedImg = gallery.findIndex(img => img.image === selectedImage);
-    const nextImg = gallery.length - 1 > findViewedImg ? gallery[findViewedImg + 1]?.image : null
+    const nextImg = gallery.length - 1 > findViewedImg ? gallery[findViewedImg + 1]?.image : firstIndex
     setSelectedImg(nextImg);
   };
   
   const handlePrevImage = () => {
+    const lastIndex = gallery.length - 1
+    const lastImage = gallery[lastIndex].image
     const findViewedImg = gallery.findIndex(img => img.image === selectedImage);
-    const prevImg = gallery.length > findViewedImg ? gallery[findViewedImg - 1]?.image : null;
-
+    const prevImg = lastIndex > findViewedImg ? gallery[findViewedImg - 1]?.image : gallery[0].image;
     setSelectedImg(prevImg);
   };
   return (
