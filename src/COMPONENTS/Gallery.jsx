@@ -12,6 +12,15 @@ function Gallery() {
       image: "/assets/computer.png",
       des: "Snippet of one of the computer laboratories of the school",
     },
+
+    {
+      image: "/assets/school-lab.png",
+      des: "Greenfield well equipped science laboratory",
+    },
+    {
+      image: "/assets/school-library.webp",
+      des: "Greenfield well equipped and upto date library",
+    },
   ];
   const viewRef = useRef(null);
   const isView = useInView(viewRef, { root: "-100px", once: true });
@@ -31,14 +40,14 @@ function Gallery() {
   };
   return (
     <section
-      className="gallery w-full bg-stone-100 h-auto md:hidden"
+      className="gallery w-full bg-stone-100 h-auto"
       ref={viewRef}
     >
       <div className="gallery-content flex flex-col pt-4 mb-1 place-items-center">
-        <h2 className="text-2xl text-gray-950 font-[700] text-shadow-gray-600  mb-4 ">School Gallery</h2>
+        <h2 className="text-2xl md:text-3xl text-gray-950 font-[700] text-shadow-gray-600  mb-4 ">School Gallery</h2>
       </div>
       <motion.div 
-  className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 py-6 place-items-center"
+  className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:overflow-auto gap-4 px-6 py-6 place-items-center"
 >
   {gallery.map((image, index) => (
     <motion.div
