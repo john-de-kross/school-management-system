@@ -53,22 +53,22 @@ function Contact() {
           <form action="space-x-">
             <div className="flex flex-col md:grid md:grid-cols-2 space-x-5 space-y-5 gap-3">
               <input
-                className="w-full text-sm md:text-base h-9 md:h-12 border p-2 outline-none border-gray-300"
+                className="w-full text-sm rounded-lg lg:rounded-none md:text-base h-10 md:h-12 border p-2 outline-none border-gray-300"
                 type="text"
                 placeholder="Your name*"
               />
               <input
-                className="w-full text-sm md:text-base h-9 md:h-12 border p-2 outline-none border-gray-300"
+                className="w-full text-sm rounded-lg lg:rounded-none md:text-base h-10 md:h-12 border p-2 outline-none border-gray-300"
                 type="email"
                 placeholder="Your email*"
               />
               <input
-                className="w-full text-sm md:text-base h-9 md:h-12 border p-2 outline-none border-gray-300"
+                className="w-full text-sm rounded-lg lg:rounded-none md:text-base h-10 md:h-12 border p-2 outline-none border-gray-300"
                 type="text"
                 placeholder="Your subject.."
               />
               <input
-                className="w-full text-sm md:text-base h-9 md:h-12 border p-2 outline-none border-gray-300"
+                className="w-full text-sm rounded-lg lg:rounded-none md:text-base h-10 md:h-12 border p-2 outline-none border-gray-300"
                 type="text"
                 placeholder="Your phone number*"
               />
