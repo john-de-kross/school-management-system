@@ -8,7 +8,7 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="w-full h-full bg-[#1C6EA4] lg:bg-gray-50 lg:block py-10"
+      className="w-full h-full bg-slate-800 lg:bg-gray-50 lg:block py-10"
       ref={ref}
       initial={{ opacity: 0, y: 90, scale: 0.95, filter: "blur(4px)" }}
       animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
