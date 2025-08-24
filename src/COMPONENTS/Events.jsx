@@ -36,10 +36,10 @@ const Events = () => {
             transition={{ duration: 0.9 }}
             key={index}
             className="card-event flex flex-col place-items-center items-center 
-                text-center rounded-lg shadow-amber-50 mt-8 bg-white w-[80%] h-auto"
+                text-center rounded-2xl transform transition duration-300 lg:hover:scale-110 shadow-2xl shadow-black bg-white/10 backdrop-blur-lg border border-white/20 mt-8  text-gray-300 w-[80%] h-auto"
           >
-            <h2 className="text-lg font-medium py-1">{event.title}</h2>
-            <p className="text-gray-800 font-serif p-2">{event.info}</p>
+            <h2 className="text-lg font-medium text-gray-800 md:text-white py-1">{event.title}</h2>
+            <p className="font-serif text-gray-100 p-2">{event.info}</p>
           </motion.div>
         ))}
       </div>

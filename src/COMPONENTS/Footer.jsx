@@ -4,7 +4,7 @@ import React from "react";
 
 function Footer() {
     return ( 
-        <footer className="w-full lg:block mx-auto md:min-h-40 min-h-[55vh] bg-slate-900">
+        <footer className="w-full lg:block mx-auto md:min-h-40 min-h-[55vh] py-9 bg-slate-900">
             <div className="mobile-footer-content flex md:hidden flex-col">
                 <div className="address text-gray-400 p-2 text-base font-sans">
                     <h1 className="text-lg font-medium mb-1">Address:</h1>

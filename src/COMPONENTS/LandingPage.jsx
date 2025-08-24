@@ -55,7 +55,7 @@ const LandingPage = () => {
           className="w-full h-full bg-cover bg-center bg-no-repeat flex items-center justify-center"
           style={{ backgroundImage: "url('/assets/class.jpg')" }}
         >
-          <motion.div className="bg-black opacity-50 text-white p-8 flex flex-col items-center justify-center text-center w-full h-full">
+          <motion.div className="bg-black opacity-60 text-white p-8 flex flex-col items-center justify-center text-center w-full h-full">
             <motion.h1
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -76,7 +76,7 @@ const LandingPage = () => {
               ))}
             </div>
 
-            <button className="bg-green-400 w-30 h-12 text-base md:text-3xl hover:bg-amber-200 md:w-48 md:h-16 lg:h-12 lg:w-36 mt-6 rounded lg:text-xl">
+            <button className="bg-slate-700 w-30 h-12 text-base md:text-3xl hover:bg-amber-200 md:w-48 md:h-16 lg:h-12 lg:w-36 mt-6 rounded lg:text-xl">
               Get Started
             </button>
           </motion.div>
