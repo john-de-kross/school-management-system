@@ -94,9 +94,9 @@ const Sidebar = () => {
           </li>
         </ul>
       </aside>
-      <nav className="onMobile p-6 bg-gradient-to-r from-indigo-600 to-pink-500 via-purple-600 w-full md:hidden">
+      <nav className="onMobile p-6 bg-gradient-to-r from-indigo-600 to-slate-700 via-purple-600 w-full md:hidden">
         <div className="nav-content w-full flex items-center justify-between mb-4">
-          <h1 className="flex justify-center text-white text-xl font-medium p-1">
+          <h1 className="flex justify-center text-white text-xl font-bold p-1">
             Student Dashboard
           </h1>
           {isOpen ? (
