@@ -20,6 +20,14 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const Sidebar = () => {
   const { isOpen, setIsOpen } = UseAppContext();
+  const menuRef = useRef(null)
+  const [menuHeight, setMenuHeight] = useState(0);
+
+  useEffect(() => {
+    if (menuRef.current) setMenuHeight(menuRef.current.scrollHeight)
+
+  }, [isOpen])
+
   return (
     <div>
       <aside className="dashboard hidden w-52 h-screen rounded-lg md:flex gap-4 flex-col shadow-lg bg-white">
@@ -94,9 +102,9 @@ const Sidebar = () => {
           </li>
         </ul>
       </aside>
-      <nav className="onMobile p-6 bg-gradient-to-r from-indigo-600 to-slate-700 via-purple-600 w-full md:hidden">
+      <nav className="onMobile p-6 bg-purple-950  w-full md:hidden">
         <div className="nav-content w-full flex items-center justify-between mb-4">
-          <h1 className="flex justify-center text-white text-xl font-bold p-1">
+          <h1 className="text-white text-2xl font-bold  ">
             Student Dashboard
           </h1>
           {isOpen ? (
@@ -120,7 +128,7 @@ const Sidebar = () => {
             initial={{height: 0, opacity: 0 }}
             animate={
               isOpen
-                ? {height: 'auto', opacity: 1 }
+                ? {height: menuHeight, opacity: 1 }
                 : {height: 0, opacity: 0 }
             }
             exit={{height: 0, opacity: 0 }}
@@ -128,7 +136,7 @@ const Sidebar = () => {
             className={`w-full overflow-hidden `}
            
           >
-            <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+            <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} menuRef={menuRef} />
           </motion.div>
         </AnimatePresence>
       </nav>
