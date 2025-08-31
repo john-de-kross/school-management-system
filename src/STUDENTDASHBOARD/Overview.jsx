@@ -12,17 +12,17 @@ const Overview = () => {
             <ArrowLeft className="text-gray-600  w-4 h-4 md:w-5 md:h-5" />
           </button>
           <input
-            className={`h-9 absolute transition-all duration-300 ${isClicked ? "w-full translate-x-0 md:static px-4  opacity-100": "w-0 translate-x-full opacity-0"} absolute md:opacity-100 md:translate-x-0 md:static ml-0 md:ml-0 md:w-48 md:flex rounded-2xl  md:px-2 outline-none bg-gray-200 md:bg-gray-300`}
+            className={`h-12 absolute transition-all duration-300 ${isClicked ? "w-full translate-x-0 md:static px-4  opacity-100": "w-0 translate-x-full opacity-0"} absolute md:opacity-100 md:translate-x-0 md:static ml-0 md:ml-0 md:w-48 md:flex rounded-2xl  md:px-2 outline-none bg-gray-200 md:bg-gray-300`}
             type="text"
             placeholder="Search"
           />
           <button
             onClick={() => setIsClicked(true)}
-            className="search-btn w-8 h-9 md:w-9 md:h-9 z-40 bg-purple-950 md:bg-transparent md:absolute md:left-[200px] rounded-xl flex items-center justify-center md:flex-none shadow-md md:shadow-none">
+            className="search-btn w-10 h-12 md:w-9 md:h-9 z-40 bg-slate-600 md:bg-transparent md:absolute md:left-[200px] rounded-xl flex items-center justify-center md:flex-none shadow-md md:shadow-none">
             <Search
               className="w-5 h-5 cursor-pointer text-gray-200 md:text-gray-600 " />
           </button>
-          <X onClick={() => setIsClicked(false)} className={`${isClicked ? 'opacity-70 ' : 'opacity-0'} absolute w-5  h-5 md:hidden right-10 `} />
+          <X onClick={() => setIsClicked(false)} className={`${isClicked ? 'opacity-70 ' : 'opacity-0'} absolute w-5  h-5 md:hidden right-14 `} />
         </div>
         <div className="right hidden md:flex items-center gap-4">
           <button className="notification-btn relative w-9 h-9 cursor-pointer bg-white rounded-full flex items-center justify-center shadow-md">
