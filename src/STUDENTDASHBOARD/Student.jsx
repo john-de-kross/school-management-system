@@ -1,17 +1,16 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-
+import Overview from "./Overview";
 
 const Student = () => {
-    return (
-        <div className="student-dashboard w-full h-screen bg-gray-300">
-            <div className="w-full grid grid-cols-1 md:grid-cols-[20%_50%_30%]">
-                <Sidebar />
-                <h1 className="text-2xl text-red-600">hello</h1>
-            </div>
-
-        </div>
-    )
-}
+  return (
+    <div className="student-dashboard w-full h-screen bg-gray-300">
+      <div className="grid grid-cols-1 md:grid-cols-[15%_85%]">
+        <Sidebar />
+        <Overview />
+      </div>
+    </div>
+  );
+};
 
 export default Student;

@@ -29,8 +29,8 @@ const Sidebar = () => {
   }, [isOpen])
 
   return (
-    <div>
-      <aside className="dashboard hidden w-52 h-screen rounded-lg md:flex gap-4 flex-col shadow-lg bg-white">
+    <div className="w-full md:w-52">
+      <aside className="dashboard hidden w-full h-screen rounded-lg md:flex gap-4 flex-col shadow-lg bg-white">
         <div className="w-full flex items-center p-4 gap-2">
           <div className="logo w-8 h-8">
             <img
@@ -102,7 +102,7 @@ const Sidebar = () => {
           </li>
         </ul>
       </aside>
-      <nav className="onMobile p-6 bg-purple-950  w-full md:hidden">
+      <nav className="onMobile p-6 h-auto  bg-gray-800  w-full md:hidden">
         <div className="nav-content w-full flex items-center justify-between mb-4">
           <h1 className="text-white text-2xl font-bold  ">
             Student Dashboard
