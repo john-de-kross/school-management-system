@@ -29,9 +29,14 @@ const Overview = () => {
     <section className="overview w-full p-5 bg-gray-300 md:bg-stone-100">
       <div className="header flex items-center justify-between mb-9">
         <div className="left  w-full  flex items-center justify-between md:justify-start relative gap-4">
-          <button className="back-btn w-7 h-7 md:w-8 md:h-8  flex  bg-white rounded-lg items-center justify-center shadow-md">
-            <ArrowLeft className="text-gray-600  w-4 h-4 md:w-5 md:h-5" />
-          </button>
+          <div className="flex gap-4 items-center">
+            <button className="back-btn w-7 h-7 md:w-8 md:h-8  flex  bg-white rounded-lg items-center justify-center shadow-md">
+              <ArrowLeft className="text-gray-600  w-4 h-4 md:w-5 md:h-5" />
+            </button>
+            <button className="notifications-btn w-7 md:hidden h-7 flex  bg-white rounded-lg items-center justify-center">
+              <Bell className="text-gray-500 w-4 h-4" />
+            </button>
+          </div>
           <input
             className={`h-12 md:h-9 absolute transition-all duration-300 ${
               isClicked
@@ -155,12 +160,12 @@ const Overview = () => {
           </div>
 
           <div className="md:flex justify-between hidden px-2 mb-2">
-            <div className="left bg-gray-300 cursor-pointer rounded-2xl w-24 justify-center h-7 flex gap-1 items-center">
+            <div className="left bg-gray-200 cursor-pointer rounded-2xl w-24 justify-center h-7 flex gap-1 items-center">
               <CalendarDaysIcon className="w-3 h-3" />
               <p className="text-xs text-gray-950 font-normal">Aug 2025</p>
               <ChevronDown className="ml-1 mt-1 w-3 h-3" />
             </div>
-            <div className="right review bg-gray-300 rounded-2xl h-7 w-20">
+            <div className="right review bg-gray-200 rounded-2xl h-7 w-20">
               <button className="w-full h-full rounded-2xl flex gap-1 justify-center items-center text-xs font-light">
                 <CalendarCheck2 className="w-3 h-3" />
                 <p className="text-xs font-normal text-gray-950">Review</p>
@@ -168,7 +173,7 @@ const Overview = () => {
             </div>
           </div>
         </div>
-        <div className="w-72 bg-white rounded-lg shadow-md">
+        <div className="md:w-72 w-full bg-white rounded-lg shadow-md">
           <Calender onChange={setValue} value={value} />
         </div>
       </div>
