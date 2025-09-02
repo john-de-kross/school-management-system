@@ -30,15 +30,15 @@ const Overview = () => {
       <div className="header flex items-center justify-between mb-9">
         <div className="left  w-full  flex items-center justify-between md:justify-start relative gap-4">
           <div className="flex gap-4 items-center">
-            <button className="back-btn w-7 h-7 md:w-8 md:h-8  flex  bg-white rounded-lg items-center justify-center shadow-md">
+            <button className={`back-btn ${isClicked? 'hidden md:flex' : ''} w-9 h-10 md:w-8 md:h-8  flex  bg-white rounded-lg items-center justify-center shadow-md`}>
               <ArrowLeft className="text-gray-600  w-4 h-4 md:w-5 md:h-5" />
             </button>
-            <button className="notifications-btn w-7 md:hidden h-7 flex  bg-white rounded-lg items-center justify-center">
+            <button className={`notifications-btn ${isClicked ? 'hidden md:flex' : ''} w-9 md:hidden h-10 flex  bg-white rounded-lg items-center justify-center`}>
               <Bell className="text-gray-500 w-4 h-4" />
             </button>
           </div>
           <input
-            className={`h-12 md:h-9 absolute transition-all duration-300 ${
+            className={`h-10 md:h-9 absolute transition-all duration-300 ${
               isClicked
                 ? "w-full translate-x-0 md:static px-4  opacity-100"
                 : "w-0 translate-x-full opacity-0"
@@ -48,9 +48,9 @@ const Overview = () => {
           />
           <button
             onClick={() => setIsClicked(true)}
-            className="search-btn w-10 h-12 md:w-9 md:h-9 z-40 bg-slate-600 md:bg-transparent md:absolute md:left-[200px] rounded-xl flex items-center justify-center md:flex-none shadow-md md:shadow-none"
+            className="search-btn w-9 h-10 md:w-9 md:h-9 z-40 bg-slate-600 md:bg-transparent md:absolute md:left-[200px] rounded-xl md:rounded-xl flex items-center justify-center md:flex-none shadow-md md:shadow-none"
           >
-            <Search className="w-5 h-5 cursor-pointer text-gray-200 md:text-gray-600 " />
+            <Search className="w-4 h-4 cursor-pointer text-gray-200 md:text-gray-600 " />
           </button>
           <X
             onClick={() => setIsClicked(false)}
