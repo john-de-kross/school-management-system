@@ -30,3 +30,10 @@
 }
 
 
+.react-calendar{
+  border: none !important;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 20%;
+
+}
+
